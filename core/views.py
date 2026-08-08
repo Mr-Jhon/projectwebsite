@@ -1,8 +1,15 @@
 from django.shortcuts import render
+from .models import Artikel
 
 
 def home(request):
-    return render(request, 'core/home.html')
+    artikel = Artikel.objects.all().order_by('-tanggal_dibuat')
+
+    return render(
+        request,
+        'core/home.html',
+        {'artikel': artikel}
+    )
 
 
 def tentang(request):

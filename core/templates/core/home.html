@@ -51,4 +51,53 @@ Beranda
 
 </div>
 
+<hr class="my-5">
+
+<div class="mb-4">
+    <h2 class="fw-bold">Artikel Terbaru</h2>
+    <p class="text-secondary">
+        Artikel terbaru dari website kami.
+    </p>
+</div>
+
+<div class="row g-4">
+
+    {% for item in artikel %}
+
+    <div class="col-md-6 col-lg-4">
+
+        <div class="card h-100 shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title fw-bold">
+                    {{ item.judul }}
+                </h5>
+
+                <p class="card-text text-secondary">
+                    {{ item.isi|truncatewords:20 }}
+                </p>
+
+                <small class="text-muted">
+                    {{ item.tanggal_dibuat|date:"d F Y" }}
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="col-12">
+        <div class="alert alert-info">
+            Belum ada artikel.
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
 {% endblock %}
