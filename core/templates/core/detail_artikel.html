@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ artikel.judul }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <article>
+
+            <h1 class="display-5 fw-bold mb-3">
+                {{ artikel.judul }}
+            </h1>
+
+            <p class="text-muted mb-4">
+                Dipublikasikan pada
+                {{ artikel.tanggal_dibuat|date:"d F Y" }}
+            </p>
+
+            <hr>
+
+            <div class="mt-4">
+
+                {{ artikel.isi|linebreaks }}
+
+            </div>
+
+        </article>
+
+
+        <div class="mt-5">
+
+            <a
+                href="{% url 'daftar_artikel' %}"
+                class="btn btn-outline-secondary"
+            >
+                ← Kembali ke Artikel
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

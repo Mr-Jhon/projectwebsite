@@ -54,7 +54,24 @@ Beranda
 <hr class="my-5">
 
 <div class="mb-4">
-    <h2 class="fw-bold">Artikel Terbaru</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold mb-1">Artikel Terbaru</h2>
+
+            <p class="text-secondary mb-0">
+                Artikel terbaru dari website kami.
+            </p>
+        </div>
+
+        <a
+            href="{% url 'daftar_artikel' %}"
+            class="btn btn-outline-primary"
+        >
+            Lihat Semua
+        </a>
+
+    </div>
     <p class="text-secondary">
         Artikel terbaru dari website kami.
     </p>

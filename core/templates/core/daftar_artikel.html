@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Artikel
+{% endblock %}
+
+{% block content %}
+
+<div class="py-4">
+
+    <div class="mb-5">
+        <h1 class="fw-bold">Artikel</h1>
+
+        <p class="text-secondary">
+            Temukan berbagai artikel terbaru dari website kami.
+        </p>
+    </div>
+
+
+    <div class="row g-4">
+
+        {% for item in artikel %}
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5 class="card-title fw-bold">
+                        {{ item.judul }}
+                    </h5>
+
+                    <p class="card-text text-secondary">
+                        {{ item.isi|truncatewords:25 }}
+                    </p>
+
+                    <div class="mt-auto">
+
+                        <small class="text-muted d-block mb-3">
+                            {{ item.tanggal_dibuat|date:"d F Y" }}
+                        </small>
+
+                        <a
+                            href="{% url 'detail_artikel' item.id %}"
+                            class="btn btn-primary"
+                        >
+                            Baca Selengkapnya
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="alert alert-info">
+                Belum ada artikel.
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
